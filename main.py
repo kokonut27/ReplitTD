@@ -1,6 +1,7 @@
 import time
 import os
 import getkey
+import getpass
 import cursor
 from replit import db
 
@@ -47,36 +48,84 @@ def clear(): os.system("clear")
 login_menu = True
 current_option_login = 1
 
-while login_menu:
-  print("Will you play as a guest, login, or signup?")
-  if current_option_login == 1:
-    print(f"{yellow}> Guest{w}")
-    print("Login")
-    print("Signup")
-  elif current_option_login == 2:
-    print("Guest")
-    print(f"{yellow}> Login{w}")
-    print("Signup")
-  else:
-    print("Guest")
-    print("Login")
-    print(f"{yellow}> Signup{w}")
-  login_i = getkey.getkey()
-
-  if login_i in [key_up, key_left, "w", "a"]:
-    a = current_option_login - 1
-    if a == 0:
-      current_option_login = 3
+while True:
+  while login_menu:
+    print("Will you play as a guest, login, or signup?")
+    if current_option_login == 1:
+      print(f"{yellow}> Guest{w}")
+      print("Login")
+      print("Signup")
+    elif current_option_login == 2:
+      print("Guest")
+      print(f"{yellow}> Login{w}")
+      print("Signup")
     else:
-      current_option_login -= 1
-  elif login_i in [key_down, key_right, "s", "d"]:
-    a = current_option_login + 1
-    if a == 4:
-      current_option_login = 1
-    else:
-      current_option_login += 1
-  elif login_i in [space, ""]:
-    login_menu = False
+      print("Guest")
+      print("Login")
+      print(f"{yellow}> Signup{w}")
+    login_i = getkey.getkey()
+  
+    if login_i in [key_up, key_left, "w", "a"]:
+      a = current_option_login - 1
+      if a == 0:
+        current_option_login = 3
+      else:
+        current_option_login -= 1
+    elif login_i in [key_down, key_right, "s", "d"]:
+      a = current_option_login + 1
+      if a == 4:
+        current_option_login = 1
+      else:
+        current_option_login += 1
+    elif login_i in [space, ""]:
+      login_menu = False
+      clear()
     clear()
-  clear()
+  
+  if current_option_login == 2: # Skips option 1 because Guest has no saving option. This may change later on in the future.
+    login_menu = True
+    while login_menu:
+      print("Login")
+      username_l = input("Username: ")
+      password_l = getpass.getpass(prompt="Password: ")
+    
+      try:
+        test_user = db[username_l]
 
+        if test_user == password_l:
+          print(f"{green}Successfully logged in! Logging into game...{w}")
+          time.sleep(2)
+          clear()
+          login_menu = False
+    
+      except:
+        print(f"{red}No such username exists or the password is incorrect! Try again!{w}")
+        time.sleep(2)
+        clear()
+        
+  elif current_option_login == 3:
+    signup_menu = True
+    while signup_menu:
+      print("Signup")
+      username_s = input("Username: ")
+      password_s = getpass.getpass(prompt="Password: ")
+      confirm_pass = getpass.getpass(prompt="Confirm password: ")
+
+      if confirm_pass != password_s:
+        print(f"{red}Your confirmation password is incorrect! Try again!{w}")
+        time.sleep(2)
+        clear()
+      else:
+        try:
+          db[username_s] = password_s
+  
+          print(f"{green}You have successfully created an account! Logging into game...{w}")
+          time.sleep(2)
+          clear()
+          signup_menu = False
+        except:
+          print(f"{red}There was something wrong with creating an account! Try again!{w}")
+          time.sleep(2)
+          clear()
+
+  input("hi")
