@@ -63,19 +63,19 @@ while login_menu:
     print(f"{yellow}> Signup{w}")
   login_i = getkey.getkey()
 
-  if login_i == key_up or login_i == key_left or login_i == "w" or login_i == "a":
+  if login_i in [key_up, key_left, "w", "a"]:
     a = current_option_login - 1
     if a == 0:
       current_option_login = 3
     else:
       current_option_login -= 1
-  elif login_i == key_down or login_i == key_right or login_i == "s" or login_i == "d":
+  elif login_i in [key_down, key_right, "s", "d"]:
     a = current_option_login + 1
     if a == 4:
       current_option_login = 1
     else:
       current_option_login += 1
-  elif login_i == space or login_i == "s" or login_i == "":
+  elif login_i in [space, ""]:
     login_menu = False
     clear()
   clear()
