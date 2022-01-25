@@ -47,6 +47,11 @@ def clear(): os.system("clear")
 
 login_menu = True
 current_option_login = 1
+login_menu = True
+signup_menu = True
+
+cursor.hide()
+clear()
 
 while True:
   while login_menu:
@@ -77,13 +82,14 @@ while True:
         current_option_login = 1
       else:
         current_option_login += 1
-    elif login_i in [space, ""]:
+    elif login_i in [space, "", "x"]:
       login_menu = False
       clear()
     clear()
+
+  cursor.show()
   
   if current_option_login == 2: # Skips option 1 because Guest has no saving option. This may change later on in the future.
-    login_menu = True
     while login_menu:
       print("Login")
       username_l = input("Username: ")
@@ -104,7 +110,6 @@ while True:
         clear()
         
   elif current_option_login == 3:
-    signup_menu = True
     while signup_menu:
       print("Signup")
       username_s = input("Username: ")
@@ -127,5 +132,13 @@ while True:
           print(f"{red}There was something wrong with creating an account! Try again!{w}")
           time.sleep(2)
           clear()
+          
+  elif current_option_login == 1:
+    print(f"{green}Logging into game as guest...{w}")
+    time.sleep(2)
+    clear()
 
-  input("hi")
+  signup_menu = False
+  login_menu = False
+
+  break
