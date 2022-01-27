@@ -1,1 +1,1 @@
-run = "python main.py" # clear.py
+run = "python src/main.py" # clear.py
