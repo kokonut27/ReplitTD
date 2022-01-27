@@ -327,10 +327,35 @@ while True:
     print("Game setup")
     map_lists = ["Replit Talk", "Python Repl", "Replit Home"]
     map = random.choice(map_lists)
+    num = 0
+
+    while num <= 10:
+      num+=1
+      cursor.hide()
+      for i in range(2):
+        print("Selecting map...")
+        print_map(replit_talk_map)
+        time.sleep(0.1)
+        clear()
+        print("Selecting map...")
+        print_map(python_repl_map)
+        time.sleep(0.1)
+        clear()
+        print("Selecting map...")
+        print_map(replit_home_map)
+        time.sleep(0.1)
+        clear()  
 
     if map == map_lists[0]:
       print_map(replit_talk_map)
-      input()
+      print("Current towers:\n[1]. Noob\n[2]. PythonCoder\n[3]. BrainFCoder")
+      idk = random.randint(1, 2)
+      if idk == 1:
+        print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
+      cursor.show()
+      choose_towers = input("> ")
+
+      
     elif map == map_lists[1]:
       print_map(python_repl_map)
     elif map == map_lists[2]:
