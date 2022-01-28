@@ -82,7 +82,7 @@ replit_home_map = [
   1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
   1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
   1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+  # 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ]
 
 python_repl_map = [
@@ -101,7 +101,7 @@ python_repl_map = [
   1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
   1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
   1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+  #  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ]
 
 def print_map(themap):
@@ -324,7 +324,6 @@ while True:
     cursor.show()
 
   if current_option_play == 1:
-    print("Game setup")
     map_lists = ["Replit Talk", "Python Repl", "Replit Home"]
     map = random.choice(map_lists)
     num = 0
@@ -333,33 +332,52 @@ while True:
       num+=1
       cursor.hide()
       for i in range(2):
+        print("Game setup")
         print("Selecting map...")
         print_map(replit_talk_map)
         time.sleep(0.1)
         clear()
+        print("Game setup")
         print("Selecting map...")
         print_map(python_repl_map)
         time.sleep(0.1)
         clear()
+        print("Game setup")
         print("Selecting map...")
         print_map(replit_home_map)
         time.sleep(0.1)
-        clear()  
+        clear()
 
     if map == map_lists[0]:
       print_map(replit_talk_map)
-      print("Current towers:\n[1]. Noob\n[2]. PythonCoder\n[3]. BrainFCoder")
+      print("\nCurrent towers:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
+      idk = random.choice([True, False])
+      if idk:
+        print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
+      cursor.show()
+      choose_towers = input("> ")
+
+      choose_towers = choose_towers.split(" ")
+
+      print(choose_towers)
+      
+    elif map == map_lists[1]:
+      print_map(python_repl_map)
+      print("\nCurrent towers:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
       idk = random.randint(1, 2)
       if idk == 1:
         print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
       cursor.show()
       choose_towers = input("> ")
-
       
-    elif map == map_lists[1]:
-      print_map(python_repl_map)
     elif map == map_lists[2]:
       print_map(replit_home_map)
+      print("\nCurrent towers:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
+      idk = random.randint(1, 2)
+      if idk == 1:
+        print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
+      cursor.show()
+      choose_towers = input("> ")
 
   elif current_option_play == 2:
     pass
