@@ -187,12 +187,20 @@ def find_player() -> int:
     if i == 2: 
       return index
 
+def get_coordinates(amap, letter):
+  for i in range(len(amap)):
+    if letter in amap[i]:
+      x = i
+      y = amap[i].index(letter)
+  return x, y
+
 # All global variables
 login_menu = True
 current_option_login = 1
 current_option_play = 1
 login_menu = True
 signup_menu = True
+money = 400
 
 
 cursor.hide()
@@ -326,6 +334,8 @@ while True:
   if current_option_play == 1:
     map_lists = ["Replit Talk", "Python Repl", "Replit Home"]
     map = random.choice(map_lists)
+    alltowers = ["noob", "pythoncoder", "javacoder"]
+    tower_menu = True
     num = 0
 
     while num <= 10:
@@ -349,17 +359,138 @@ while True:
         clear()
 
     if map == map_lists[0]:
-      print_map(replit_talk_map)
-      print("\nCurrent towers:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
-      idk = random.choice([True, False])
-      if idk:
-        print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
-      cursor.show()
-      choose_towers = input("> ")
+      while tower_menu:
+        print_map(replit_talk_map)
+        print("\nCurrent towers:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
+        idk = random.choice([True, False])
+        if idk:
+          print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
+        cursor.show()
+        choose_towers = input("> ").lower()
+        clear()
+  
+        choose_towers2 = choose_towers.split(" ")
+  
+        tower_1 = choose_towers2[0]
+        tower_2 = choose_towers2[1]
+        tower_3 = choose_towers2[2]
+  
+        if tower_1 not in alltowers:
+          print(f"{red}Not a tower that you currently have!{w}")
+          time.sleep(2)
+          clear()
+        elif tower_2 not in alltowers:
+          print(f"{red}Not a tower that you currently have!{w}")
+          time.sleep(2)
+          clear()
+        elif tower_3 not in alltowers:
+          print(f"{red}Not a tower that you currently have!{w}")
+          time.sleep(2)
+          clear()
+        else:
+          tower_menu = False
 
-      choose_towers = choose_towers.split(" ")
+        clear()
 
-      print(choose_towers)
+      if tower_1 == alltowers[0]:
+        cost_1 = "Cost: 100"
+        Cost_1 = 100
+      elif tower_1 == alltowers[1]:
+        cost_1 = "Cost: 150"
+        Cost_1 = 150
+      elif tower_1 == alltowers[2]:
+        cost_1 = "Cost: 175"
+        Cost_1 = 175
+
+      if tower_2 == alltowers[0]:
+        cost_2 = "Cost: 100"
+        Cost_2 = 100
+      elif tower_2 == alltowers[1]:
+        cost_2 = "Cost: 150"
+        Cost_2 = 150
+      elif tower_2 == alltowers[2]:
+        cost_2 = "Cost: 175"
+        Cost_2 = 175
+
+      if tower_3 == alltowers[0]:
+        cost_3 = "Cost: 100"
+        Cost_3 = 100
+      elif tower_3 == alltowers[1]:
+        cost_3 = "Cost: 150"
+        Cost_3 = 150
+      elif tower_3 == alltowers[2]:
+        cost_3 = "Cost: 175"
+        Cost_3 = 175
+
+      playing = True
+      while playing:
+        print_map(replit_talk_map)
+        print(f"\n[1]. {tower_1} {cost_1}\n[2]. {tower_2} {cost_2}\n[3]. {tower_3} {cost_3}")
+        tower = input("> ")
+        clear()
+
+        if tower in ["1", "2", "3", "a", "b", "c"]:
+          if tower == "1" or tower == "a":
+            if money >= Cost_1:
+              money -= Cost_1
+              print(f"{green}Successfully bought {tower_1}!{w}")
+              time.sleep(2)
+              clear()
+
+              print_map(replit_talk_map)
+              a = random.choice([True, False])
+              if a:
+                print("Note: the syntax for input is \"num1, num2\"")
+              coord = input("> ")
+              
+              coord = coord.replace(" ", "")
+              coordinate = coord.split(",")
+              x = coordinate[0]
+              y = coordinate[1]
+
+              get_coordinates(replit_talk_map, )
+
+            else:
+              print(f"{red}Not enough money!{w}")
+              time.sleep(2)
+              clear()
+
+          elif tower == "2" or tower == "b":
+            if money >= Cost_2:
+              money -= Cost_2
+              print(f"{green}Successfully bought {tower_2}!{w}")
+              time.sleep(2)
+              clear()
+
+              print_map(replit_talk_map)
+              a = random.choice([True, False])
+              if a:
+                print("Note: the syntax for input is \"num1, num2\"")
+              coord = input("> ")
+
+            else:
+              print(f"{red}Not enough money!{w}")
+              time.sleep(2)
+              clear()
+
+          elif tower == "3" or tower == "c":
+            if money >= Cost_3:
+              money -= Cost_3
+              print(f"{green}Successfully bought {tower_3}!{w}")
+              time.sleep(2)
+              clear()
+
+              print_map(replit_talk_map)
+              a = random.choice([True, False])
+              if a:
+                print("Note: the syntax for input is \"num1, num2\"")
+              coord = input("> ")
+
+            else:
+              print(f"{red}Not enough money!{w}")
+              time.sleep(2)
+              clear()
+
       
     elif map == map_lists[1]:
       print_map(python_repl_map)
