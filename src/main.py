@@ -204,6 +204,8 @@ money = 400
 wave = 1
 wave_start = True
 turbo_mode = False # YESSIR :DDDD
+health = 100
+hit_chance = 0
 
 
 cursor.hide()
@@ -429,6 +431,7 @@ while True:
       while playing:
         print_map(replit_talk_map)
         print(bold + "Wave: " + str(wave) + w)
+        print(bold + red + "Health: " + str(health) + w)
         print(f"\n[1]. {tower_1} {cost_1}\n[2]. {tower_2} {cost_2}\n[3]. {tower_3} {cost_3}")
         abc = random.choice([True, False])
         if abc:
@@ -496,7 +499,7 @@ while True:
                 clear()
                 money += Cost_1 # Refunds money because incorrect coordinates
               else:
-                replit_talk_map[x][y] = bred + "N" + w
+                replit_talk_map[x][y] = bred + "P" + w
 
             else:
               print(f"{red}Not enough money!{w}")
@@ -529,7 +532,7 @@ while True:
                 clear()
                 money += Cost_1 # Refunds money because incorrect coordinates
               else:
-                replit_talk_map[x][y] = bred + "N" + w
+                replit_talk_map[x][y] = bred + "J" + w
 
             else:
               print(f"{red}Not enough money!{w}")
@@ -545,24 +548,52 @@ while True:
             balloon_count = 0
             balloon_coord_x, balloon_coord_y = 1, 1
             while wave_start:
-              if balloon_count == amount_of_balloons:
+              if health <= 0:
+                print(f"{red}Game Over!{w}")
+                time.sleep(2)
+                clear()
                 wave_start = False
-                clear()
+                playing = False
+                tower_menu = False
+                play_menu = True
+                # woah so many booleans
               else:
-                print_map(replit_talk_map)
-                if turbo_mode: time_between = 0.5
-                else: time_between = 1
-  
-                balloon_colour = random.choice([red, green, yellow, cyan, magenta])
-                replit_talk_map[balloon_coord_x][balloon_coord_y] = balloon_colour + "()" + w
-                if replit_talk_map[balloon_coord_x][balloon_coord_y] == 99:
-                  balloon_coord_x += 1
+                if balloon_count == amount_of_balloons:
+                  wave_start = False
+                  clear()
                 else:
-                  balloon_coord_y += 1
-  
-                time.sleep(time_between)
-                clear()
-                balloon_count += 1
+                  print_map(replit_talk_map)
+                  if turbo_mode: time_between = 0.5
+                  else: time_between = 1
+    
+                  balloon_colour = random.choice([red, green, yellow, cyan, magenta])
+                  db["before_balloon"] = str(replit_talk_map[balloon_coord_x][balloon_coord_y])
+                  replit_talk_map[balloon_coord_x][balloon_coord_y] = balloon_colour + "()" + w
+                  if balloon_coord_x == 17 and balloon_coord_y == 21:
+                    if type(db["before_balloon"]) == int:
+                      db["before_balloon"] = str(db["before_balloon"])
+                    replit_talk_map[balloon_coord_x][balloon_coord_y] = db["before_balloon"]
+                    health -= 5
+                  elif "N" in replit_talk_map:
+                    hit_chance += 1
+                  elif "P" in replit_talk_map:
+                    hit_chance += 2
+                  elif "J" in replit_talk_map:
+                    hit_chance += 4        
+                  elif replit_talk_map[balloon_coord_x][balloon_coord_y] == 99:
+                    balloon_coord_x += 1
+                  else:
+                    balloon_coord_y += 1
+
+                  hit_yn = random.randint(1, amount_of_balloons-2)
+
+                  if hit_chance >= hit_yn:
+                    replit_talk_map[balloon_coord_x][balloon_coord_y] = db["before_balloon"]
+                    money += random.randint(7, 15)
+    
+                  time.sleep(time_between)
+                  clear()
+                  balloon_count += 1
 
           else:
             print(f"{red}Invalid option!{w}")
