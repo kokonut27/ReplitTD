@@ -48,22 +48,21 @@ grey_back = "\033[0;40m"
 def clear(): os.system("clear")
 
 replit_talk_map = [
-  "corner", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  9, "p", "p", "p", "p", "p", "p", "p", "p", 99, 99, 99, 99, 99, 99, 99, 99, 0, 0, 0, 0, 10,
-  9, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 0, 0, 0, 0, 10,
-  9, 3, 0, "p", 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 0, 0, 0, 0, 10,
-  9, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 0, 0, 0, 0, 10,
-  9, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", "p", "p", 99, 99, 99, 99, 99, 10,
-  9, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 99, 99, 99, 99, 99, 99, 10,
-  9, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 99, 99, 10,
-  9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 99, 99, 99, 99, 99, 10,
-  9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", "p", "p", "p", 99, 99, 99, 99, 10,
-  9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 0, 0, 0, 0, 0, 0, 99, 10,
-  9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 0, 0, 0, 0, 0, 0, 99, 10,
-  9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 0, 0, 0, 0, 0, 0, 99, 10,
-  9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 0, 0, 0, 0, 0, 0, 99, 10,
-  9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", "p", "p", "p", 99, 99, 99, 99, 10, 
-  # 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
+  ["corner", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [9, "p", "p", "p", "p", "p", "p", "p", "p", 99, 99, 99, 99, 99, 99, 99, 99, 0, 0, 0, 0, 10],
+  [9, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 0, 0, 0, 0, 10],
+  [9, 3, 0, "p", 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 0, 0, 0, 0, 10],
+  [9, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 0, 0, 0, 0, 10],
+  [9, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", "p", "p", 99, 99, 99, 99, 99, 10],
+  [9, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 99, 99, 99, 99, 99, 99, 10],
+  [9, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 99, 99, 10],
+  [9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 99, 99, 99, 99, 99, 99, 99, 99, 10],
+  [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", "p", "p", "p", 99, 99, 99, 99, 10],
+  [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 0, 0, 0, 0, 0, 0, 99, 10],
+  [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 0, 0, 0, 0, 0, 0, 99, 10],
+  [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 0, 0, 0, 0, 0, 0, 99, 10],
+  [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", 0, 0, 0, 0, 0, 0, 99, 10],
+  [9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "p", "p", "p", "p", 99, 99, 99, 99, 10],
 ]
 
 replit_home_map = [
@@ -109,75 +108,76 @@ def print_map(themap):
   i = 0
   side_num = 0
   letter = "a"
-  for x in themap:
-    i += 1
-    side_num += 1
-    if i == 22: 
-      _end = "\n"
-      i = 0
-      if side_num == 22:
-        letter = "b"
-      elif side_num == 44:
-        letter = "c"
-      elif side_num == 66:
-        letter = "d"
-      elif side_num == 88:
-        letter = "e"
-      elif side_num == 110:
-        letter = "f"
-      elif side_num == 132:
-        letter = "g"
-      elif side_num == 154:
-        letter = "h"
-      elif side_num == 176:
-        letter = "i"
-      elif side_num == 198:
-        letter = "j"
-      elif side_num == 220:
-        letter = "k"
-      elif side_num == 242:
-        letter = "l"
-      elif side_num == 264:
-        letter = "m"
-      elif side_num == 286:
-        letter = "n"
-      elif side_num == 308:
-        letter = "o"
-      elif side_num == 330:
-        letter = "p"
-    else: 
-      _end = ""
-    if themap == replit_talk_map:
-      if x == "corner":
-        print(" ", end = _end)
-      if x == 0:
-        print(" ", end = _end)
-      if x == 9:
-        print(letter, end = "")
-      if x == 1:
-        if side_num >= 10:
-          if side_num == 10:
-            print()
-        else:
-          print(side_num, end = _end)
-      elif x == 2:
-        print(white_back + blue + "All" + w, end = _end)
-      elif x == 3:
-        print(white_back + blue + "Announcements" + w, end = _end)
-      elif x == 4:
-        print(white_back + blue + "Ask" + w, end = _end)
-      elif x == 5:
-        print(white_back + blue + "Jam" + w, end = _end)
-      elif x == 6:
-        print(white_back + blue + "Tutorials" + w, end = _end)
-      elif x == 7:
-        print(white_back + blue + "Share" + w, end = _end)
-      elif x == 8:
-        print(white_back + blue + "Template" + w, end = _end)
-      elif x == "p":
-        print(white_back + "  " + w, end = _end)
-      elif x == 10:
-        print()
+  for f in themap:
+    for x in f:
+      i += 1
+      side_num += 1
+      if i == 22: 
+        _end = "\n"
+        i = 0
+        if side_num == 22:
+          letter = "b"
+        elif side_num == 44:
+          letter = "c"
+        elif side_num == 66:
+          letter = "d"
+        elif side_num == 88:
+          letter = "e"
+        elif side_num == 110:
+          letter = "f"
+        elif side_num == 132:
+          letter = "g"
+        elif side_num == 154:
+          letter = "h"
+        elif side_num == 176:
+          letter = "i"
+        elif side_num == 198:
+          letter = "j"
+        elif side_num == 220:
+          letter = "k"
+        elif side_num == 242:
+          letter = "l"
+        elif side_num == 264:
+          letter = "m"
+        elif side_num == 286:
+          letter = "n"
+        elif side_num == 308:
+          letter = "o"
+        elif side_num == 330:
+          letter = "p"
+      else: 
+        _end = ""
+      if themap == replit_talk_map:
+        if x == "corner":
+          print(" ", end = _end)
+        if x == 0:
+          print(" ", end = _end)
+        if x == 9:
+          print(letter, end = "")
+        if x == 1:
+          if side_num >= 10:
+            if side_num == 10:
+              print()
+          else:
+            print(side_num, end = _end)
+        elif x == 2:
+          print(white_back + blue + "All" + w, end = _end)
+        elif x == 3:
+          print(white_back + blue + "Announcements" + w, end = _end)
+        elif x == 4:
+          print(white_back + blue + "Ask" + w, end = _end)
+        elif x == 5:
+          print(white_back + blue + "Jam" + w, end = _end)
+        elif x == 6:
+          print(white_back + blue + "Tutorials" + w, end = _end)
+        elif x == 7:
+          print(white_back + blue + "Share" + w, end = _end)
+        elif x == 8:
+          print(white_back + blue + "Template" + w, end = _end)
+        elif x == "p":
+          print(white_back + "  " + w, end = _end)
+        elif x == 10:
+          print()
     
 
 def find_player() -> int:
@@ -201,6 +201,9 @@ current_option_play = 1
 login_menu = True
 signup_menu = True
 money = 400
+wave = 1
+wave_start = True
+turbo_mode = False # YESSIR :DDDD
 
 
 cursor.hide()
@@ -425,11 +428,15 @@ while True:
       playing = True
       while playing:
         print_map(replit_talk_map)
+        print(bold + "Wave: " + str(wave) + w)
         print(f"\n[1]. {tower_1} {cost_1}\n[2]. {tower_2} {cost_2}\n[3]. {tower_3} {cost_3}")
-        tower = input("> ")
+        abc = random.choice([True, False])
+        if abc:
+          print("Note: enter \"start\" or \"s\" to start the wave.")
+        tower = input("> ").lower()
         clear()
 
-        if tower in ["1", "2", "3", "a", "b", "c"]:
+        if tower in ["1", "2", "3", "a", "b", "c", "s", "start"]:
           if tower == "1" or tower == "a":
             if money >= Cost_1:
               money -= Cost_1
@@ -448,7 +455,15 @@ while True:
               x = coordinate[0]
               y = coordinate[1]
 
-              get_coordinates(replit_talk_map, )
+              map_coord = replit_talk_map[x][y]
+
+              if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
+                print(f"{red}You cannot place a tower on text or on the path!{w}")
+                time.sleep(2)
+                clear()
+                money += Cost_1 # Refunds money because incorrect coordinates
+              else:
+                replit_talk_map[x][y] = bred + "N" + w
 
             else:
               print(f"{red}Not enough money!{w}")
@@ -468,6 +483,21 @@ while True:
                 print("Note: the syntax for input is \"num1, num2\"")
               coord = input("> ")
 
+              coord = coord.replace(" ", "")
+              coordinate = coord.split(",")
+              x = coordinate[0]
+              y = coordinate[1]
+
+              map_coord = replit_talk_map[x][y]
+
+              if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
+                print(f"{red}You cannot place a tower on text or on the path!{w}")
+                time.sleep(2)
+                clear()
+                money += Cost_1 # Refunds money because incorrect coordinates
+              else:
+                replit_talk_map[x][y] = bred + "N" + w
+
             else:
               print(f"{red}Not enough money!{w}")
               time.sleep(2)
@@ -486,11 +516,63 @@ while True:
                 print("Note: the syntax for input is \"num1, num2\"")
               coord = input("> ")
 
+              coord = coord.replace(" ", "")
+              coordinate = coord.split(",")
+              x = coordinate[0]
+              y = coordinate[1]
+
+              map_coord = replit_talk_map[x][y]
+
+              if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
+                print(f"{red}You cannot place a tower on text or on the path!{w}")
+                time.sleep(2)
+                clear()
+                money += Cost_1 # Refunds money because incorrect coordinates
+              else:
+                replit_talk_map[x][y] = bred + "N" + w
+
             else:
               print(f"{red}Not enough money!{w}")
               time.sleep(2)
               clear()
 
+          elif tower[0] == "t" or tower == "turbo": # yessir
+            turbo_mode = True      
+
+          elif tower[0] == "s" or tower[1] == "t":
+            clear()
+            amount_of_balloons = wave*5
+            balloon_count = 0
+            balloon_coord_x, balloon_coord_y = 1, 1
+            while wave_start:
+              if balloon_count == amount_of_balloons:
+                wave_start = False
+                clear()
+              else:
+                print_map(replit_talk_map)
+                if turbo_mode: time_between = 0.5
+                else: time_between = 1
+  
+                balloon_colour = random.choice([red, green, yellow, cyan, magenta])
+                replit_talk_map[balloon_coord_x][balloon_coord_y] = balloon_colour + "()" + w
+                if replit_talk_map[balloon_coord_x][balloon_coord_y] == 99:
+                  balloon_coord_x += 1
+                else:
+                  balloon_coord_y += 1
+  
+                time.sleep(time_between)
+                clear()
+                balloon_count += 1
+
+          else:
+            print(f"{red}Invalid option!{w}")
+            time.sleep(2)
+            clear()
+
+        else:
+            print(f"{red}Invalid option!{w}")
+            time.sleep(2)
+            clear()
       
     elif map == map_lists[1]:
       print_map(python_repl_map)
