@@ -384,16 +384,37 @@ while True:
           print(f"{red}Invalid syntax for choosing towers!{w}")
           time.sleep(2)
           clear()
-  
-        if tower_1 not in alltowers:
+
+        if tower_1 == "1":
+          Tower_1 = "noob"
+        elif tower_1 == "2":
+          Tower_1 = "pythoncoder"
+        elif tower_1 == "3":
+          Tower_1 = "javacoder"
+
+        if tower_2 == "1":
+          Tower_2 = "noob"
+        elif tower_2 == "2":
+          Tower_2 = "pythoncoder"
+        elif tower_2 == "3":
+          Tower_2 = "javacoder"
+
+        if tower_3 == "1":
+          Tower_3 = "noob"
+        elif tower_3 == "2":
+          Tower_3 = "pythoncoder"
+        elif tower_3 == "3":
+          Tower_3 = "javacoder"
+        
+        if Tower_1 not in alltowers:
           print(f"{red}Not a tower that you currently have!{w}")
           time.sleep(2)
           clear()
-        elif tower_2 not in alltowers:
+        elif Tower_2 not in alltowers:
           print(f"{red}Not a tower that you currently have!{w}")
           time.sleep(2)
           clear()
-        elif tower_3 not in alltowers:
+        elif Tower_3 not in alltowers:
           print(f"{red}Not a tower that you currently have!{w}")
           time.sleep(2)
           clear()
