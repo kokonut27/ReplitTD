@@ -660,6 +660,9 @@ while True:
           print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
         cursor.show()
         choose_towers = input("> ")
+    else:
+      pass
+      # this is logged in mode
 
   elif current_option_play == 2:
     pass
