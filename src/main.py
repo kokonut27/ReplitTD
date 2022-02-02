@@ -423,33 +423,33 @@ while True:
 
         clear()
 
-      if tower_1 == alltowers[0]:
+      if Tower_1 == alltowers[0]:
         cost_1 = "Cost: 100"
         Cost_1 = 100
-      elif tower_1 == alltowers[1]:
+      elif Tower_1 == alltowers[1]:
         cost_1 = "Cost: 150"
         Cost_1 = 150
-      elif tower_1 == alltowers[2]:
+      elif Tower_1 == alltowers[2]:
         cost_1 = "Cost: 175"
         Cost_1 = 175
 
-      if tower_2 == alltowers[0]:
+      if Tower_2 == alltowers[0]:
         cost_2 = "Cost: 100"
         Cost_2 = 100
-      elif tower_2 == alltowers[1]:
+      elif Tower_2 == alltowers[1]:
         cost_2 = "Cost: 150"
         Cost_2 = 150
-      elif tower_2 == alltowers[2]:
+      elif Tower_2 == alltowers[2]:
         cost_2 = "Cost: 175"
         Cost_2 = 175
 
-      if tower_3 == alltowers[0]:
+      if Tower_3 == alltowers[0]:
         cost_3 = "Cost: 100"
         Cost_3 = 100
-      elif tower_3 == alltowers[1]:
+      elif Tower_3 == alltowers[1]:
         cost_3 = "Cost: 150"
         Cost_3 = 150
-      elif tower_3 == alltowers[2]:
+      elif Tower_3 == alltowers[2]:
         cost_3 = "Cost: 175"
         Cost_3 = 175
 
