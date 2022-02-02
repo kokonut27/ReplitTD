@@ -207,6 +207,7 @@ turbo_mode = False # YESSIR :DDDD
 health = 100
 hit_chance = 0
 LOG = False
+tower_info_menu = True
 
 
 cursor.hide()
@@ -672,4 +673,34 @@ while True:
 
   elif current_option_play == 4:
     clear()
-    print("Towers bought:\n")
+    if LOG != True:
+      while tower_info_menu:
+        print("Towers bought:\n(N) Noob\n(P) PythonCoder\n(J) JavaCoder")
+        info = input("> ").lower()
+        clear()
+  
+        if info == "" or info == "exit" or info == "quit":
+          tower_info_menu = False
+        elif info[0] == "n":
+          print("Noob Tower stats:\nHit chance: 1")
+          input("> ")
+          clear()
+        elif info[0] == "p":
+          print("PythonCoder Tower stats:\nHit chance: 2")
+          input("> ")
+          clear()
+        elif info[0] == "j":
+          print("JavaCoder Tower stats:\nHit chance: 4")
+          input("> ")
+          clear()
+    else:
+      while tower_info_menu:
+        towers = db["all_towers"].split("\n")
+        print(f"Towers bought:\n{towers}")
+        info = input("> ").lower()
+        clear()
+
+        if info == "" or info == "exit" or info == "quit":
+          tower_info_menu = False
+        elif info == db["all_towers"][0][0] or info == db["all_towers"][0]:
+          print()
