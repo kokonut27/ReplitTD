@@ -206,6 +206,7 @@ wave_start = True
 turbo_mode = False # YESSIR :DDDD
 health = 100
 hit_chance = 0
+LOG = False
 
 
 cursor.hide()
@@ -261,7 +262,7 @@ while True:
           time.sleep(2)
           clear()
           login_menu = False
-    
+          LOG = True
       except:
         print(f"{red}No such username exists or the password is incorrect! Try again!{w}")
         time.sleep(2)
@@ -286,6 +287,7 @@ while True:
           time.sleep(2)
           clear()
           signup_menu = False
+          LOG = True
         except:
           print(f"{red}There was something wrong with creating an account! Try again!{w}")
           time.sleep(2)
@@ -342,324 +344,329 @@ while True:
     cursor.show()
 
   if current_option_play == 1:
-    map_lists = ["Replit Talk", "Python Repl", "Replit Home"]
-    map = random.choice(map_lists)
-    alltowers = ["noob", "pythoncoder", "javacoder"]
-    tower_menu = True
-    num = 0
-
-    while num <= 10:
-      num+=1
-      cursor.hide()
-      for i in range(2):
-        print("Game setup")
-        print("Selecting map...")
-        print_map(replit_talk_map)
-        time.sleep(0.1)
-        clear()
-        print("Game setup")
-        print("Selecting map...")
+    if LOG != True:
+      map_lists = ["Replit Talk", "Python Repl", "Replit Home"]
+      map = random.choice(map_lists)
+      alltowers = ["noob", "pythoncoder", "javacoder"]
+      tower_menu = True
+      num = 0
+  
+      while num <= 10:
+        num+=1
+        cursor.hide()
+        for i in range(2):
+          print("Game setup")
+          print("Selecting map...")
+          print_map(replit_talk_map)
+          time.sleep(0.1)
+          clear()
+          print("Game setup")
+          print("Selecting map...")
+          print_map(python_repl_map)
+          time.sleep(0.1)
+          clear()
+          print("Game setup")
+          print("Selecting map...")
+          print_map(replit_home_map)
+          time.sleep(0.1)
+          clear()
+  
+      if map == map_lists[0]:
+        while tower_menu:
+          print_map(replit_talk_map)
+          print("\nTowers bought:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
+          idk = random.choice([True, False])
+          if idk:
+            print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
+          cursor.show()
+          choose_towers = input("> ").lower()
+          clear()
+    
+          choose_towers2 = choose_towers.split(" ")
+  
+          try:
+            tower_1 = choose_towers2[0]
+            tower_2 = choose_towers2[1]
+            tower_3 = choose_towers2[2]
+          except:
+            print(f"{red}Invalid syntax for choosing towers!{w}")
+            time.sleep(2)
+            clear()
+  
+          if tower_1 == "1":
+            Tower_1 = "noob"
+          elif tower_1 == "2":
+            Tower_1 = "pythoncoder"
+          elif tower_1 == "3":
+            Tower_1 = "javacoder"
+  
+          if tower_2 == "1":
+            Tower_2 = "noob"
+          elif tower_2 == "2":
+            Tower_2 = "pythoncoder"
+          elif tower_2 == "3":
+            Tower_2 = "javacoder"
+  
+          if tower_3 == "1":
+            Tower_3 = "noob"
+          elif tower_3 == "2":
+            Tower_3 = "pythoncoder"
+          elif tower_3 == "3":
+            Tower_3 = "javacoder"
+          
+          if Tower_1 not in alltowers:
+            print(f"{red}Not a tower that you currently have!{w}")
+            time.sleep(2)
+            clear()
+          elif Tower_2 not in alltowers:
+            print(f"{red}Not a tower that you currently have!{w}")
+            time.sleep(2)
+            clear()
+          elif Tower_3 not in alltowers:
+            print(f"{red}Not a tower that you currently have!{w}")
+            time.sleep(2)
+            clear()
+          else:
+            tower_menu = False
+  
+          clear()
+  
+        if Tower_1 == alltowers[0]:
+          cost_1 = "Cost: 100"
+          Cost_1 = 100
+        elif Tower_1 == alltowers[1]:
+          cost_1 = "Cost: 150"
+          Cost_1 = 150
+        elif Tower_1 == alltowers[2]:
+          cost_1 = "Cost: 175"
+          Cost_1 = 175
+  
+        if Tower_2 == alltowers[0]:
+          cost_2 = "Cost: 100"
+          Cost_2 = 100
+        elif Tower_2 == alltowers[1]:
+          cost_2 = "Cost: 150"
+          Cost_2 = 150
+        elif Tower_2 == alltowers[2]:
+          cost_2 = "Cost: 175"
+          Cost_2 = 175
+  
+        if Tower_3 == alltowers[0]:
+          cost_3 = "Cost: 100"
+          Cost_3 = 100
+        elif Tower_3 == alltowers[1]:
+          cost_3 = "Cost: 150"
+          Cost_3 = 150
+        elif Tower_3 == alltowers[2]:
+          cost_3 = "Cost: 175"
+          Cost_3 = 175
+  
+        playing = True
+        while playing:
+          print_map(replit_talk_map)
+          print(bold + "Wave: " + str(wave) + w)
+          print(bold + red + "Health: " + str(health) + w)
+          print(f"\n[1]. {tower_1} {cost_1}\n[2]. {tower_2} {cost_2}\n[3]. {tower_3} {cost_3}")
+          abc = random.choice([True, False])
+          if abc:
+            print("Note: enter \"start\" or \"s\" to start the wave.")
+          tower = input("> ").lower()
+          clear()
+  
+          if tower in ["1", "2", "3", "a", "b", "c", "s", "start"]:
+            if tower == "1" or tower == "a":
+              if money >= Cost_1:
+                money -= Cost_1
+                print(f"{green}Successfully bought {tower_1}!{w}")
+                time.sleep(2)
+                clear()
+  
+                print_map(replit_talk_map)
+                a = random.choice([True, False])
+                if a:
+                  print("Note: the syntax for input is \"num1, num2\"")
+                coord = input("> ")
+                
+                coord = coord.replace(" ", "")
+                coordinate = coord.split(",")
+                x = coordinate[0]
+                y = coordinate[1]
+  
+                map_coord = replit_talk_map[x][y]
+  
+                if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
+                  print(f"{red}You cannot place a tower on text or on the path!{w}")
+                  time.sleep(2)
+                  clear()
+                  money += Cost_1 # Refunds money because incorrect coordinates
+                else:
+                  replit_talk_map[x][y] = bred + "N" + w
+  
+              else:
+                print(f"{red}Not enough money!{w}")
+                time.sleep(2)
+                clear()
+  
+            elif tower == "2" or tower == "b":
+              if money >= Cost_2:
+                money -= Cost_2
+                print(f"{green}Successfully bought {tower_2}!{w}")
+                time.sleep(2)
+                clear()
+  
+                print_map(replit_talk_map)
+                a = random.choice([True, False])
+                if a:
+                  print("Note: the syntax for input is \"num1, num2\"")
+                coord = input("> ")
+  
+                coord = coord.replace(" ", "")
+                coordinate = coord.split(",")
+                x = coordinate[0]
+                y = coordinate[1]
+  
+                map_coord = replit_talk_map[x][y]
+  
+                if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
+                  print(f"{red}You cannot place a tower on text or on the path!{w}")
+                  time.sleep(2)
+                  clear()
+                  money += Cost_1 # Refunds money because incorrect coordinates
+                else:
+                  replit_talk_map[x][y] = bred + "P" + w
+  
+              else:
+                print(f"{red}Not enough money!{w}")
+                time.sleep(2)
+                clear()
+  
+            elif tower == "3" or tower == "c":
+              if money >= Cost_3:
+                money -= Cost_3
+                print(f"{green}Successfully bought {tower_3}!{w}")
+                time.sleep(2)
+                clear()
+  
+                print_map(replit_talk_map)
+                a = random.choice([True, False])
+                if a:
+                  print("Note: the syntax for input is \"num1, num2\"")
+                coord = input("> ")
+  
+                coord = coord.replace(" ", "")
+                coordinate = coord.split(",")
+                x = coordinate[0]
+                y = coordinate[1]
+  
+                map_coord = replit_talk_map[x][y]
+  
+                if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
+                  print(f"{red}You cannot place a tower on text or on the path!{w}")
+                  time.sleep(2)
+                  clear()
+                  money += Cost_1 # Refunds money because incorrect coordinates
+                else:
+                  replit_talk_map[x][y] = bred + "J" + w
+  
+              else:
+                print(f"{red}Not enough money!{w}")
+                time.sleep(2)
+                clear()
+  
+            elif tower[0] == "t" or tower == "turbo": # yessir
+              if turbo_mode: turbo_mode = False
+              else: turbo_mode = True
+  
+            elif tower[0] == "s" or tower[1] == "t":
+              clear()
+              amount_of_balloons = wave*5
+              balloon_count = 0
+              balloon_coord_x, balloon_coord_y = 1, 1
+              while wave_start:
+                if health <= 0:
+                  print(f"{red}Game Over!{w}")
+                  time.sleep(2)
+                  clear()
+                  wave_start = False
+                  playing = False
+                  tower_menu = False
+                  play_menu = True
+                  # woah so many booleans
+                else:
+                  if balloon_count == amount_of_balloons:
+                    wave_start = False
+                    clear()
+                  else:
+                    print_map(replit_talk_map)
+                    if turbo_mode: time_between = 0.5
+                    else: time_between = 1
+      
+                    balloon_colour = random.choice([red, green, yellow, cyan, magenta])
+                    db["before_balloon"] = str(replit_talk_map[balloon_coord_x][balloon_coord_y])
+                    replit_talk_map[balloon_coord_x][balloon_coord_y] = balloon_colour + "()" + w
+                    if balloon_coord_x == 17 and balloon_coord_y == 21:
+                      if type(db["before_balloon"]) == int:
+                        db["before_balloon"] = str(db["before_balloon"])
+                      replit_talk_map[balloon_coord_x][balloon_coord_y] = db["before_balloon"]
+                      health -= 5
+                    elif "N" in replit_talk_map:
+                      hit_chance += 1
+                    elif "P" in replit_talk_map:
+                      hit_chance += 2
+                    elif "J" in replit_talk_map:
+                      hit_chance += 4        
+                    elif replit_talk_map[balloon_coord_x][balloon_coord_y] == 99:
+                      if balloon_coord_x == 12 and balloon_coord_y == 8:
+                        balloon_coord_y += 1
+                      else:
+                        balloon_coord_x += 1
+                    else:
+                      balloon_coord_y += 1
+  
+                    hit_yn = random.randint(1, amount_of_balloons-2)
+  
+                    if hit_chance >= hit_yn:
+                      replit_talk_map[balloon_coord_x][balloon_coord_y] = db["before_balloon"]
+                      money += random.randint(7, 15)
+      
+                    time.sleep(time_between)
+                    clear()
+                    balloon_count += 1
+  
+            else:
+              print(f"{red}Invalid option!{w}")
+              time.sleep(2)
+              clear()
+  
+          else:
+              print(f"{red}Invalid option!{w}")
+              time.sleep(2)
+              clear()
+        
+      elif map == map_lists[1]:
         print_map(python_repl_map)
-        time.sleep(0.1)
-        clear()
-        print("Game setup")
-        print("Selecting map...")
-        print_map(replit_home_map)
-        time.sleep(0.1)
-        clear()
-
-    if map == map_lists[0]:
-      while tower_menu:
-        print_map(replit_talk_map)
         print("\nTowers bought:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
-        idk = random.choice([True, False])
-        if idk:
+        idk = random.randint(1, 2)
+        if idk == 1:
           print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
         cursor.show()
-        choose_towers = input("> ").lower()
-        clear()
-  
-        choose_towers2 = choose_towers.split(" ")
-
-        try:
-          tower_1 = choose_towers2[0]
-          tower_2 = choose_towers2[1]
-          tower_3 = choose_towers2[2]
-        except:
-          print(f"{red}Invalid syntax for choosing towers!{w}")
-          time.sleep(2)
-          clear()
-
-        if tower_1 == "1":
-          Tower_1 = "noob"
-        elif tower_1 == "2":
-          Tower_1 = "pythoncoder"
-        elif tower_1 == "3":
-          Tower_1 = "javacoder"
-
-        if tower_2 == "1":
-          Tower_2 = "noob"
-        elif tower_2 == "2":
-          Tower_2 = "pythoncoder"
-        elif tower_2 == "3":
-          Tower_2 = "javacoder"
-
-        if tower_3 == "1":
-          Tower_3 = "noob"
-        elif tower_3 == "2":
-          Tower_3 = "pythoncoder"
-        elif tower_3 == "3":
-          Tower_3 = "javacoder"
+        choose_towers = input("> ")
         
-        if Tower_1 not in alltowers:
-          print(f"{red}Not a tower that you currently have!{w}")
-          time.sleep(2)
-          clear()
-        elif Tower_2 not in alltowers:
-          print(f"{red}Not a tower that you currently have!{w}")
-          time.sleep(2)
-          clear()
-        elif Tower_3 not in alltowers:
-          print(f"{red}Not a tower that you currently have!{w}")
-          time.sleep(2)
-          clear()
-        else:
-          tower_menu = False
-
-        clear()
-
-      if Tower_1 == alltowers[0]:
-        cost_1 = "Cost: 100"
-        Cost_1 = 100
-      elif Tower_1 == alltowers[1]:
-        cost_1 = "Cost: 150"
-        Cost_1 = 150
-      elif Tower_1 == alltowers[2]:
-        cost_1 = "Cost: 175"
-        Cost_1 = 175
-
-      if Tower_2 == alltowers[0]:
-        cost_2 = "Cost: 100"
-        Cost_2 = 100
-      elif Tower_2 == alltowers[1]:
-        cost_2 = "Cost: 150"
-        Cost_2 = 150
-      elif Tower_2 == alltowers[2]:
-        cost_2 = "Cost: 175"
-        Cost_2 = 175
-
-      if Tower_3 == alltowers[0]:
-        cost_3 = "Cost: 100"
-        Cost_3 = 100
-      elif Tower_3 == alltowers[1]:
-        cost_3 = "Cost: 150"
-        Cost_3 = 150
-      elif Tower_3 == alltowers[2]:
-        cost_3 = "Cost: 175"
-        Cost_3 = 175
-
-      playing = True
-      while playing:
-        print_map(replit_talk_map)
-        print(bold + "Wave: " + str(wave) + w)
-        print(bold + red + "Health: " + str(health) + w)
-        print(f"\n[1]. {tower_1} {cost_1}\n[2]. {tower_2} {cost_2}\n[3]. {tower_3} {cost_3}")
-        abc = random.choice([True, False])
-        if abc:
-          print("Note: enter \"start\" or \"s\" to start the wave.")
-        tower = input("> ").lower()
-        clear()
-
-        if tower in ["1", "2", "3", "a", "b", "c", "s", "start"]:
-          if tower == "1" or tower == "a":
-            if money >= Cost_1:
-              money -= Cost_1
-              print(f"{green}Successfully bought {tower_1}!{w}")
-              time.sleep(2)
-              clear()
-
-              print_map(replit_talk_map)
-              a = random.choice([True, False])
-              if a:
-                print("Note: the syntax for input is \"num1, num2\"")
-              coord = input("> ")
-              
-              coord = coord.replace(" ", "")
-              coordinate = coord.split(",")
-              x = coordinate[0]
-              y = coordinate[1]
-
-              map_coord = replit_talk_map[x][y]
-
-              if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
-                print(f"{red}You cannot place a tower on text or on the path!{w}")
-                time.sleep(2)
-                clear()
-                money += Cost_1 # Refunds money because incorrect coordinates
-              else:
-                replit_talk_map[x][y] = bred + "N" + w
-
-            else:
-              print(f"{red}Not enough money!{w}")
-              time.sleep(2)
-              clear()
-
-          elif tower == "2" or tower == "b":
-            if money >= Cost_2:
-              money -= Cost_2
-              print(f"{green}Successfully bought {tower_2}!{w}")
-              time.sleep(2)
-              clear()
-
-              print_map(replit_talk_map)
-              a = random.choice([True, False])
-              if a:
-                print("Note: the syntax for input is \"num1, num2\"")
-              coord = input("> ")
-
-              coord = coord.replace(" ", "")
-              coordinate = coord.split(",")
-              x = coordinate[0]
-              y = coordinate[1]
-
-              map_coord = replit_talk_map[x][y]
-
-              if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
-                print(f"{red}You cannot place a tower on text or on the path!{w}")
-                time.sleep(2)
-                clear()
-                money += Cost_1 # Refunds money because incorrect coordinates
-              else:
-                replit_talk_map[x][y] = bred + "P" + w
-
-            else:
-              print(f"{red}Not enough money!{w}")
-              time.sleep(2)
-              clear()
-
-          elif tower == "3" or tower == "c":
-            if money >= Cost_3:
-              money -= Cost_3
-              print(f"{green}Successfully bought {tower_3}!{w}")
-              time.sleep(2)
-              clear()
-
-              print_map(replit_talk_map)
-              a = random.choice([True, False])
-              if a:
-                print("Note: the syntax for input is \"num1, num2\"")
-              coord = input("> ")
-
-              coord = coord.replace(" ", "")
-              coordinate = coord.split(",")
-              x = coordinate[0]
-              y = coordinate[1]
-
-              map_coord = replit_talk_map[x][y]
-
-              if map_coord in ["p", 2, 3, 4, 5, 6, 7, 8]:
-                print(f"{red}You cannot place a tower on text or on the path!{w}")
-                time.sleep(2)
-                clear()
-                money += Cost_1 # Refunds money because incorrect coordinates
-              else:
-                replit_talk_map[x][y] = bred + "J" + w
-
-            else:
-              print(f"{red}Not enough money!{w}")
-              time.sleep(2)
-              clear()
-
-          elif tower[0] == "t" or tower == "turbo": # yessir
-            if turbo_mode: turbo_mode = False
-            else: turbo_mode = True
-
-          elif tower[0] == "s" or tower[1] == "t":
-            clear()
-            amount_of_balloons = wave*5
-            balloon_count = 0
-            balloon_coord_x, balloon_coord_y = 1, 1
-            while wave_start:
-              if health <= 0:
-                print(f"{red}Game Over!{w}")
-                time.sleep(2)
-                clear()
-                wave_start = False
-                playing = False
-                tower_menu = False
-                play_menu = True
-                # woah so many booleans
-              else:
-                if balloon_count == amount_of_balloons:
-                  wave_start = False
-                  clear()
-                else:
-                  print_map(replit_talk_map)
-                  if turbo_mode: time_between = 0.5
-                  else: time_between = 1
-    
-                  balloon_colour = random.choice([red, green, yellow, cyan, magenta])
-                  db["before_balloon"] = str(replit_talk_map[balloon_coord_x][balloon_coord_y])
-                  replit_talk_map[balloon_coord_x][balloon_coord_y] = balloon_colour + "()" + w
-                  if balloon_coord_x == 17 and balloon_coord_y == 21:
-                    if type(db["before_balloon"]) == int:
-                      db["before_balloon"] = str(db["before_balloon"])
-                    replit_talk_map[balloon_coord_x][balloon_coord_y] = db["before_balloon"]
-                    health -= 5
-                  elif "N" in replit_talk_map:
-                    hit_chance += 1
-                  elif "P" in replit_talk_map:
-                    hit_chance += 2
-                  elif "J" in replit_talk_map:
-                    hit_chance += 4        
-                  elif replit_talk_map[balloon_coord_x][balloon_coord_y] == 99:
-                    if balloon_coord_x == 12 and balloon_coord_y == 8:
-                      balloon_coord_y += 1
-                    else:
-                      balloon_coord_x += 1
-                  else:
-                    balloon_coord_y += 1
-
-                  hit_yn = random.randint(1, amount_of_balloons-2)
-
-                  if hit_chance >= hit_yn:
-                    replit_talk_map[balloon_coord_x][balloon_coord_y] = db["before_balloon"]
-                    money += random.randint(7, 15)
-    
-                  time.sleep(time_between)
-                  clear()
-                  balloon_count += 1
-
-          else:
-            print(f"{red}Invalid option!{w}")
-            time.sleep(2)
-            clear()
-
-        else:
-            print(f"{red}Invalid option!{w}")
-            time.sleep(2)
-            clear()
-      
-    elif map == map_lists[1]:
-      print_map(python_repl_map)
-      print("\nTowers bought:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
-      idk = random.randint(1, 2)
-      if idk == 1:
-        print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
-      cursor.show()
-      choose_towers = input("> ")
-      
-    elif map == map_lists[2]:
-      print_map(replit_home_map)
-      print("\nTowers bought:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
-      idk = random.randint(1, 2)
-      if idk == 1:
-        print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
-      cursor.show()
-      choose_towers = input("> ")
+      elif map == map_lists[2]:
+        print_map(replit_home_map)
+        print("\nTowers bought:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
+        idk = random.randint(1, 2)
+        if idk == 1:
+          print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
+        cursor.show()
+        choose_towers = input("> ")
 
   elif current_option_play == 2:
     pass
 
   elif current_option_play == 3:
     pass
+
+  elif current_option_play == 4:
+    clear()
+    print("Towers bought:\n")
