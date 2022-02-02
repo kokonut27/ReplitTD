@@ -637,7 +637,7 @@ while True:
       
     elif map == map_lists[1]:
       print_map(python_repl_map)
-      print("\nCurrent towers:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
+      print("\nTowers bought:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
       idk = random.randint(1, 2)
       if idk == 1:
         print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
@@ -646,7 +646,7 @@ while True:
       
     elif map == map_lists[2]:
       print_map(replit_home_map)
-      print("\nCurrent towers:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
+      print("\nTowers bought:\n[1]. (N) Noob\n[2]. (P) PythonCoder\n[3]. (J) JavaCoder")
       idk = random.randint(1, 2)
       if idk == 1:
         print("Note: syntax for choosing towers is choosing them by number, and separating them with spaces.")
