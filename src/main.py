@@ -315,17 +315,22 @@ while True:
       print("Quick play")
       print("Play online")
       print(f"{yellow}> Competitive{w}")
+    elif current_option_play == 4:
+      print("Quick play")
+      print("Play online")
+      print("Competitive")
+      print(f"{yellow}> Towers{w}")
     menu_i = getkey.getkey()
     
     if menu_i in [key_up, key_left, "w", "a"]:
       a = current_option_play - 1
       if a == 0:
-         current_option_play = 3
+         current_option_play = 4
       else:
         current_option_play -= 1
     elif menu_i in [key_down, key_right, "s", "d"]:
       a = current_option_play + 1
-      if a == 4:
+      if a == 5:
         current_option_play = 1
       else:
         current_option_play += 1
