@@ -5,3 +5,6 @@
 
 ## About
 A Tower Defense game coded in Python3, and is text-based.
+
+## Socketio Client
+The socketio client can be viewed [here](https://github.com/kokonut27/ReplitTD-Client)
